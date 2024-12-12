@@ -1,4 +1,4 @@
-// src/components/Board/BoardList.js
+import { db } from '../../firebase';
 import React, { useState } from 'react';
 import PostList from './PostList';
 import PostForm from './PostForm';
