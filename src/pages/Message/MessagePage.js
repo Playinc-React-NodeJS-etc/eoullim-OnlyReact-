@@ -11,11 +11,22 @@ const MessagePage = () => {
     { id: 5, senderName: '사용자 E', content: '어울림 최고', createdAt: '2024.12.11' },
   ]);
 
+  const [showDeleteOption, setShowDeleteOption] = useState(null);
+
+  const handleMenuClick = (id) => {
+    setShowDeleteOption(showDeleteOption === id ? null : id);
+  };
+
+  const handleDelete = (id) => {
+    setMessages(messages.filter(message => message.id !== id));
+    setShowDeleteOption(null);
+  };
+
   return (
     <div className="main-container">
       <header className="main-header">
         <div className="header-left">
-          <Link to="/main" className="main-title" style={{ textDecoration: 'none', color: 'black', fontWeight: 'normal',fontSize: '16px'  }}>어울림</Link>
+          <Link to="/main" className="main-title" style={{ textDecoration: 'none', color: 'black', fontWeight: 'normal', fontSize: '16px' }}>어울림</Link>
           <Link to="/message" className="main-title" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>쪽지함</Link>
         </div>
         <Link to="/profile" className="profile-link">
@@ -32,6 +43,12 @@ const MessagePage = () => {
               <p className="message-content">{message.content}</p>
             </div>
             <span className="date">{message.createdAt}</span>
+            <button className="action-button" onClick={() => handleMenuClick(message.id)}>⋮</button>
+            {showDeleteOption === message.id && (
+              <div className="delete-option">
+                <button onClick={() => handleDelete(message.id)}>🗑️ 삭제</button>
+              </div>
+            )}
           </div>
         ))}
       </div>

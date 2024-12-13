@@ -1,4 +1,3 @@
-// BoardPage.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './BoardPage.css';
@@ -13,7 +12,7 @@ const BoardPage = () => {
     category: '자유게시판',
     likes: 100,
     comments: 100
-  }).map((post, index) => ({...post, id: index + 1}));
+  }).map((post, index) => ({ ...post, id: index + 1 }));
 
   return (
     <div className="main-container">
@@ -26,20 +25,28 @@ const BoardPage = () => {
 
       <div className="posts-list">
         {samplePosts.map(post => (
-          <div key={post.id} className="post-card">
+          <div 
+            key={post.id} 
+            className="post-card" 
+            onClick={() => navigate(`/post/${post.id}`, { state: { from: 'board' } })}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="post-header">
-              <span className="post-author">{post.author}</span>
-              <span className="post-date">{post.date}</span>
+              <span className="post-category">{post.category}</span>
             </div>
             <div className="post-main">
               <h3 className="post-title">{post.title}</h3>
-              <p className="post-content">{post.content}</p>
+              <p className="post-content" style={{ textAlign: 'left' }}>{post.content}</p>
             </div>
             <div className="post-footer">
-              <span className="post-category">{post.category}</span>
+              <div className="footer-left">
+                <span className="post-author">{post.author}</span>
+                <span className="post-date">{post.date}</span>
+              </div>
               <div className="post-stats">
                 <span className="likes">👍 {post.likes}</span>
                 <span className="comments">💬 {post.comments}</span>
+                <button className="action-button" onClick={() => navigate('/messages/write')}>⋮</button>
               </div>
             </div>
           </div>

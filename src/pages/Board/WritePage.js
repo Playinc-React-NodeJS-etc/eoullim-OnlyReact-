@@ -9,16 +9,20 @@ const WritePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: 게시글 작성 로직 구현
-    navigate('/board');  // 작성 완료 후 게시판으로 이동
+    const newMessage = { id: Date.now(), senderName: '익명', title: title, content: content, createdAt: new Date().toLocaleDateString() };
+    console.log('New Message:', newMessage);
+    const messages = JSON.parse(localStorage.getItem('messages')) || [];
+    messages.push(newMessage);
+    localStorage.setItem('messages', JSON.stringify(messages));
+    navigate('/message');
   };
 
   return (
     <div className="write-container">
       <header className="main-header">
-        <div className="header-left">
+        <div className="header-left" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <Link to="/main" className="main-title" style={{ textDecoration: 'none', color: 'black' }}>어울림</Link>
-          <h1 className="page-title">글쓰기</h1>
+          <h1 className="page-title" style={{ textAlign: 'center', margin: '0 auto' }}>게시글 쓰기</h1>
         </div>
       </header>
 

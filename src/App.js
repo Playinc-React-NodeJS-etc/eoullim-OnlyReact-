@@ -14,7 +14,9 @@ import MessagePage from './pages/Message/MessagePage';
 import MessageWrite from './pages/Message/MessageWrite';
 import ProfilePage from './pages/Profile/ProfilePage';
 import WritePage from './pages/Board/WritePage';
-import BoardPage from './pages/Board/BoardPage';  // 추가
+import BoardPage from './pages/Board/BoardPage';
+import PostDetailPage from './pages/Post/PostDetailPage';
+import WithdrawPage from './pages/Withdraw/WithdrawPage'; 
 
 function App() {
   const [currentPost, setCurrentPost] = useState(null);
@@ -47,6 +49,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+        <Route path="/post/:id" element={<PostDetailPage />} />
           <Route path="/" element={<Splash />} />
           <Route 
             path="/main" 
@@ -62,6 +65,7 @@ function App() {
           />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/withdraw" element={<WithdrawPage />} />
           <Route 
             path="/messages" 
             element={user ? <MessagePage /> : <Navigate to="/login" />}

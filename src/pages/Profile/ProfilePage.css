@@ -1,43 +1,95 @@
-.profile-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .profile-content {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-info {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .profile-image {
-    font-size: 80px;
-    margin-bottom: 20px;
-  }
-  
-  .profile-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 20px;
-  }
-  
-  .stat-item {
-    text-align: center;
-  }
-  
-  .stat-label {
-    display: block;
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  .stat-value {
-    font-size: 20px;
-    font-weight: bold;
-  }
+.profile-header {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.header-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.profile-info-section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+}
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.user-details {
+  font-size: 14px;
+  color: #666;
+}
+
+.menu-section {
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-icon {
+  margin-right: 10px;
+  color: #666;
+}
+
+.arrow-icon {
+  margin-left: auto;
+  color: #666;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+
+.action-buttons {
+  padding: 0 20px;
+}
+
+.action-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-icon {
+  margin-left: auto;
+}
