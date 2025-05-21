@@ -22,6 +22,18 @@ const PostList = ({ onEdit, limit: postLimit }) => {
     setPosts(postsData);
   };
 
+  const handleDelete = async (postId) => {
+    if (window.confirm('정말로 이 게시글을 삭제하시겠습니까?')) {
+      try {
+        await deleteDoc(doc(db, 'posts', postId));
+        await fetchPosts(); // 삭제 후 목록 새로고침
+      } catch (error) {
+        console.error('게시글 삭제 중 오류 발생:', error);
+        alert('게시글 삭제 중 오류가 발생했습니다.');
+      }
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
   }, [postLimit]);
